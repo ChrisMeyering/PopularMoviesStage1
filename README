@@ -1,0 +1,8 @@
+Author: Chris Meyering
+Email: christophe.daven@gmail.com
+
+An application to browse movies sorted by rating or popularity.
+Powered by The Movie Database API. 
+API key has been removed from the program. If you wish to use
+this program, please create your own API key by following the steps at http://koditips.com/create-tmdb-api-key/
+
