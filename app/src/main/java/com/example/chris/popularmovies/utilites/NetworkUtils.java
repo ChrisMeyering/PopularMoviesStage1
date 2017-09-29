@@ -18,7 +18,7 @@ public class NetworkUtils {
     private static final String TMDB_IMG_BASE_URL = "https://image.tmdb.org/t/p/";
     private static final String PARAM_PAGE_NUMBER = "page";
     private static final String PARAM_API_KEY = "api_key";
-    private static final String API_KEY = ""; //Put your own API key here. You can obtain one by
+    private static final String API_KEY = ""; //Put your own API key here.
 
 
     public static URL buildSortedMoviesURL(String sort_by, int pageNumber) {
