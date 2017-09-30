@@ -29,7 +29,7 @@ public class MovieDetail extends AppCompatActivity {
     private TextView tv_release_date;
     private ImageView iv_movie_poster;
     private LinearLayout ll_details;
-    private LinearLayout ll_synopsys;
+    private LinearLayout ll_synopsis;
     private TextView tv_genres;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class MovieDetail extends AppCompatActivity {
         tv_release_date = (TextView) findViewById(R.id.tv_release_date);
         ll_details = (LinearLayout) findViewById(R.id.details_layout);
         tv_genres = (TextView) findViewById(R.id.tv_genres);
-        ll_synopsys = (LinearLayout) findViewById(R.id.synopsys_layout);
+        ll_synopsis = (LinearLayout) findViewById(R.id.synopsis_layout);
     }
 
     private void makeMovieQuery() {
@@ -67,7 +67,7 @@ public class MovieDetail extends AppCompatActivity {
 
     private  void showProgressBar() {
         pb_loading_movie.setVisibility(View.VISIBLE);
-        ll_synopsys.setVisibility(View.INVISIBLE);
+        ll_synopsis.setVisibility(View.INVISIBLE);
         iv_backdrop.setVisibility(View.INVISIBLE);
         tv_movie_title.setVisibility(View.INVISIBLE);
         ll_details.setVisibility(View.INVISIBLE);
@@ -80,7 +80,7 @@ public class MovieDetail extends AppCompatActivity {
         tv_genres.setVisibility(View.VISIBLE);
         iv_backdrop.setVisibility(View.VISIBLE);
         ll_details.setVisibility(View.VISIBLE);
-        ll_synopsys.setVisibility(View.VISIBLE);
+        ll_synopsis.setVisibility(View.VISIBLE);
         tv_display_error.setVisibility(View.INVISIBLE);
         pb_loading_movie.setVisibility(View.INVISIBLE);
     }
@@ -91,11 +91,11 @@ public class MovieDetail extends AppCompatActivity {
         iv_backdrop.setVisibility(View.INVISIBLE);
         tv_movie_title.setVisibility(View.INVISIBLE);
         ll_details.setVisibility(View.INVISIBLE);
-        ll_synopsys.setVisibility(View.INVISIBLE);
+        ll_synopsis.setVisibility(View.INVISIBLE);
         tv_display_error.setVisibility(View.VISIBLE);
     }
 
-    public class MovieQueryTask extends AsyncTask<URL, Void, MovieInfo> {
+    private class MovieQueryTask extends AsyncTask<URL, Void, MovieInfo> {
 
         @Override
         protected void onPreExecute() {
@@ -139,7 +139,7 @@ public class MovieDetail extends AppCompatActivity {
                 tv_release_date.append(" " + movie.getRelease_date());
                 tv_rating.append(" " + String.valueOf(movie.getVote_average()) + "/10");
                 tv_display_overview.setText(movie.getOverview());
-                tv_genres.setText("Genres: " + movie.getGenre_names());
+                tv_genres.append(" " + movie.getGenre_names());
 
             } else {
                 showError();

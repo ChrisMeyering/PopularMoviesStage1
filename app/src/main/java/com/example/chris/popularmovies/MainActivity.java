@@ -13,14 +13,11 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.chris.popularmovies.utilites.JSONUtils;
 import com.example.chris.popularmovies.utilites.MoviePoster;
 import com.example.chris.popularmovies.utilites.NetworkUtils;
 import com.example.chris.popularmovies.utilites.Utility;
-
-import org.w3c.dom.Text;
 
 import java.net.URL;
 
@@ -37,8 +34,6 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
     private MovieAdapter movieAdapter;
     private TextView tv_display_error;
     private ProgressBar pb_loading_data;
-    private ImageButton ib_prev_page;
-    private ImageButton ib_next_page;
     private TextView tv_page_num;
 
     @Override
@@ -54,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         rv_movies = (RecyclerView) findViewById(R.id.rv_movies);
         tv_display_error = (TextView) findViewById(R.id.tv_display_error);
         pb_loading_data = (ProgressBar) findViewById(R.id.pb_loading_posters);
-        ib_prev_page = (ImageButton) findViewById(R.id.ib_prev_page);
+        ImageButton ib_prev_page = (ImageButton) findViewById(R.id.ib_prev_page);
         ib_prev_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         });
         tv_page_num = (TextView) findViewById(R.id.tv_page_num);
         updatePageNumberTV();
-        ib_next_page = (ImageButton) findViewById(R.id.ib_next_page);
+        ImageButton ib_next_page = (ImageButton) findViewById(R.id.ib_next_page);
         ib_next_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_sort_pop:
-                if (sort_by != SORT_BY_POPULARITY) {
+                if (!sort_by.equals(SORT_BY_POPULARITY)) {
                     sort_by = SORT_BY_POPULARITY;
                     page_number = 1;
                     updatePageNumberTV();
@@ -112,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
                 }
                 return true;
             case R.id.action_sort_rating:
-                if (sort_by != SORT_BY_RATING) {
+                if (!sort_by.equals(SORT_BY_RATING)) {
                     sort_by = SORT_BY_RATING;
                     page_number = 1;
                     updatePageNumberTV();
@@ -145,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
         startActivity(intent);
     }
 
-    public class PosterQueryTask extends AsyncTask<URL, Void, MoviePoster[]> {
+    private class PosterQueryTask extends AsyncTask<URL, Void, MoviePoster[]> {
 
         @Override
         protected void onPreExecute() {

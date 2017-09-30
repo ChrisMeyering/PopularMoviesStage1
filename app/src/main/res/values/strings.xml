@@ -5,5 +5,11 @@
     <string name="movie_rating">Rating:</string>
     <string name="sort_top_rated">Top Rated</string>
     <string name="sort_most_popular">Most Popular</string>
-    <string name="movie_description">Synopsys:</string>
+    <string name="movie_description">Synopsis:</string>
+    <string name="img_desc_left_btn">Previous button</string>
+    <string name="img_desc_right_btn">Next button</string>
+    <string name="img_desc_backdrop">Image View Backdrop</string>
+    <string name="tv_genres_base">Genres:</string>
+    <string name="img_desc_poster">Image View Poster</string>
 </resources>
+

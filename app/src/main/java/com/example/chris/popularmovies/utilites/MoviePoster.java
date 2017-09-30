@@ -5,8 +5,8 @@ package com.example.chris.popularmovies.utilites;
  */
 
 public class MoviePoster {
-    private int id;
-    private String poster_path;
+    private final int id;
+    private final String poster_path;
 
     MoviePoster(int id, String poster_path) {
         this.id = id;

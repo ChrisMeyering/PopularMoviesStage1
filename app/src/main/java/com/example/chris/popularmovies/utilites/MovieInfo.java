@@ -115,13 +115,12 @@ public class MovieInfo {
     }
 
     public String getInfo() {
-        String info = "id : " + String.valueOf(id) +
+        return "id : " + String.valueOf(id) +
                 "\ntitle : " + title +
                 "\nvote_average : " + String.valueOf(vote_average) +
                 "\npopularity : " + String.valueOf(popularity) +
                 "\nposter path : " + poster_path +
                 "\ndescription : " + overview +
                 "\nrelease date : " + release_date;
-        return info;
     }
 }
