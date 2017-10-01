@@ -11,7 +11,7 @@ public class Utility {
     public static int numOfGridColumns (Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
-        return (int) (dpWidth/180);
+        return Math.max((int) (dpWidth/180), 2);
     }
 
     public static int getMaxGridCellWidth(Context context) {

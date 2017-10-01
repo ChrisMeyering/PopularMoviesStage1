@@ -17,26 +17,32 @@ import com.squareup.picasso.Picasso;
 
 import java.net.URL;
 
-public class MovieDetail extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.BindViews;
+import butterknife.ButterKnife;
+
+public class MovieDetailActivity extends AppCompatActivity {
 
     private int movieID;
-    private TextView tv_display_overview;
-    private TextView tv_movie_title;
-    private ProgressBar pb_loading_movie;
-    private TextView tv_display_error;
-    private ImageView iv_backdrop;
-    private TextView tv_rating;
-    private TextView tv_release_date;
-    private ImageView iv_movie_poster;
-    private LinearLayout ll_details;
-    private LinearLayout ll_synopsis;
-    private TextView tv_genres;
+
+    @BindView(R.id.tv_movie_info) private TextView tv_display_overview;
+    @BindView(R.id.tv_movie_title) private TextView tv_movie_title;
+    @BindView(R.id.pb_loading_movie) private ProgressBar pb_loading_movie;
+    @BindView(R.id.tv_display_error) private TextView tv_display_error;
+    @BindView(R.id.iv_backdrop) private ImageView iv_backdrop;
+    @BindView(R.id.tv_rating) private TextView tv_rating;
+    @BindView(R.id.tv_release_date) private TextView tv_release_date;
+    @BindView(R.id.iv_movie_poster) private ImageView iv_movie_poster;
+    @BindView(R.id.details_layout) private LinearLayout ll_details;
+    @BindView(R.id.synopsis_layout) private LinearLayout ll_synopsis;
+    @BindView(R.id.tv_genres) private TextView tv_genres;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
 
-        initView();
+        ButterKnife.bind(this);
         Intent start_intent = getIntent();
         if (start_intent != null) {
             if (start_intent.hasExtra("movieID")) {
@@ -44,20 +50,6 @@ public class MovieDetail extends AppCompatActivity {
             }
         }
         makeMovieQuery();
-    }
-
-    private void initView() {
-        tv_display_overview = (TextView) findViewById(R.id.tv_movie_info);
-        pb_loading_movie = (ProgressBar) findViewById(R.id.pb_loading_movie);
-        tv_display_error = (TextView) findViewById(R.id.tv_movie_error);
-        iv_backdrop = (ImageView) findViewById(R.id.iv_backdrop);
-        tv_movie_title = (TextView) findViewById(R.id.tv_movie_title);
-        iv_movie_poster = (ImageView) findViewById(R.id.iv_movie_poster);
-        tv_rating = (TextView) findViewById(R.id.tv_rating);
-        tv_release_date = (TextView) findViewById(R.id.tv_release_date);
-        ll_details = (LinearLayout) findViewById(R.id.details_layout);
-        tv_genres = (TextView) findViewById(R.id.tv_genres);
-        ll_synopsis = (LinearLayout) findViewById(R.id.synopsis_layout);
     }
 
     private void makeMovieQuery() {

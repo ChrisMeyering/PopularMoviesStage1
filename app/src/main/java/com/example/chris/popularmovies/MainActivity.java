@@ -23,9 +23,6 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity implements MovieAdapter.MovieAdapterClickHandler {
 
-
-
-
     private static final String SORT_BY_RATING = "top_rated";
     private static final String SORT_BY_POPULARITY = "popular";
     private int page_number = 1;
@@ -135,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Movi
 
     @Override
     public void onClick(int movieID) {
-        Intent intent = new Intent(this, MovieDetail.class);
+        Intent intent = new Intent(this, MovieDetailActivity.class);
         intent.putExtra("movieID", movieID);
         startActivity(intent);
     }

@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:padding="12dp"
     android:background="@drawable/main_activity_background_wg"
-    tools:context="com.example.chris.popularmovies.MovieDetail">
+    tools:context="com.example.chris.popularmovies.MovieDetailActivity">
 
     <ImageView
         android:id="@+id/iv_movie_poster"
