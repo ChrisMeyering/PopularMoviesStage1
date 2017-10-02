@@ -18,24 +18,23 @@ import com.squareup.picasso.Picasso;
 import java.net.URL;
 
 import butterknife.BindView;
-import butterknife.BindViews;
 import butterknife.ButterKnife;
 
 public class MovieDetailActivity extends AppCompatActivity {
 
     private int movieID;
 
-    @BindView(R.id.tv_movie_info) private TextView tv_display_overview;
-    @BindView(R.id.tv_movie_title) private TextView tv_movie_title;
-    @BindView(R.id.pb_loading_movie) private ProgressBar pb_loading_movie;
-    @BindView(R.id.tv_display_error) private TextView tv_display_error;
-    @BindView(R.id.iv_backdrop) private ImageView iv_backdrop;
-    @BindView(R.id.tv_rating) private TextView tv_rating;
-    @BindView(R.id.tv_release_date) private TextView tv_release_date;
-    @BindView(R.id.iv_movie_poster) private ImageView iv_movie_poster;
-    @BindView(R.id.details_layout) private LinearLayout ll_details;
-    @BindView(R.id.synopsis_layout) private LinearLayout ll_synopsis;
-    @BindView(R.id.tv_genres) private TextView tv_genres;
+    @BindView(R.id.tv_movie_info) TextView tv_display_overview;
+    @BindView(R.id.tv_movie_title) TextView tv_movie_title;
+    @BindView(R.id.pb_loading_movie) ProgressBar pb_loading_movie;
+    @BindView(R.id.tv_movie_error) TextView tv_display_error;
+    @BindView(R.id.iv_backdrop) ImageView iv_backdrop;
+    @BindView(R.id.tv_rating) TextView tv_rating;
+    @BindView(R.id.tv_release_date) TextView tv_release_date;
+    @BindView(R.id.iv_movie_poster) ImageView iv_movie_poster;
+    @BindView(R.id.details_layout) LinearLayout ll_details;
+    @BindView(R.id.synopsis_layout) LinearLayout ll_synopsis;
+    @BindView(R.id.tv_genres) TextView tv_genres;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
